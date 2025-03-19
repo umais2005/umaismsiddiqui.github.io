@@ -70,13 +70,16 @@ const Skills: React.FC<SkillsProps> = ({ portfolioData }) => {
               ))}
             </div>
             
-            <style jsx>{`
-              .animate-skill {
-                transform: translateX(calc(-100% + var(--width, 0%))) !important;
-              }
-            `}</style>
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                .animate-skill {
+                  transform: translateX(calc(-100% + var(--width, 0%))) !important;
+                }
+              `
+            }} />
             
-            <script dangerouslySetInnerHTML={{
+            {/* Use useEffect for this instead of dangerouslySetInnerHTML */}
+            <script type="text/javascript" dangerouslySetInnerHTML={{
               __html: `
                 document.querySelectorAll('[data-width]').forEach(el => {
                   el.style.setProperty('--width', el.dataset.width + '%');
