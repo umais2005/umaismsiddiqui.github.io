@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 210 33% 99%;
-    --foreground: 210 33% 9%;
+    --background: 260 20% 98%;
+    --foreground: 260 20% 10%;
 
-    --card: 210 33% 99%;
-    --card-foreground: 210 33% 9%;
+    --card: 260 20% 98%;
+    --card-foreground: 260 20% 10%;
 
-    --popover: 210 33% 99%;
-    --popover-foreground: 210 33% 9%;
+    --popover: 260 20% 98%;
+    --popover-foreground: 260 20% 10%;
 
-    --primary: 210 33% 9%;
-    --primary-foreground: 210 33% 99%;
+    --primary: 260 60% 55%;
+    --primary-foreground: 260 20% 98%;
 
-    --secondary: 210 16% 93%;
-    --secondary-foreground: 210 33% 9%;
+    --secondary: 230 70% 90%;
+    --secondary-foreground: 230 30% 30%;
 
-    --muted: 210 16% 93%;
-    --muted-foreground: 210 8% 45%;
+    --muted: 260 10% 90%;
+    --muted-foreground: 260 10% 40%;
 
-    --accent: 210 16% 93%;
-    --accent-foreground: 210 33% 9%;
+    --accent: 330 80% 60%;
+    --accent-foreground: 330 80% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 33% 99%;
 
-    --border: 210 16% 90%;
-    --input: 210 16% 90%;
-    --ring: 210 33% 60%;
+    --border: 260 20% 85%;
+    --input: 260 20% 85%;
+    --ring: 260 60% 55%;
 
     --radius: 0.75rem;
   }
@@ -48,11 +48,14 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 25% 10%, rgba(148, 108, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, rgba(255, 85, 178, 0.05) 0%, transparent 40%);
     font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1, "cv02" 1;
   }
 
   ::selection {
-    @apply bg-primary/10;
+    @apply bg-accent/20 text-accent-foreground;
   }
 
   ::-webkit-scrollbar {
@@ -65,11 +68,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/50 rounded-full;
+    @apply bg-primary/50 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/70;
+    @apply bg-primary/70;
   }
 
   .image-container {
@@ -99,7 +102,7 @@
     left: 0;
     height: 1px;
     width: 100px;
-    @apply bg-primary;
+    @apply bg-accent;
     transition: width 0.5s ease;
   }
 
@@ -113,7 +116,11 @@
   }
 
   .glassmorphism {
-    @apply bg-background/80 backdrop-blur border border-primary/5;
+    @apply bg-background/60 backdrop-blur border border-primary/10 shadow-lg;
+  }
+  
+  .ai-circuit-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657l1.415 1.414L13.857 0H11.03zm32.284 0L39.9 3.414 42.28 0h-2.012L36.12 3.414 38.5 0h-2.012L30.634 5.071 33.02 0h-2.01L25.19 5.757 27.585 0h-2.01l-3.75 3.75 1.415 1.414L26.511 0h-2.826L20 3.414 22.38 0h-2.014L15.586 5.07 18 0h-2.03L8.973 6.027l1.414 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415L16.172 0h-2.827L5.373 7.97l1.415 1.415' fill='%23946cff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 }
 
@@ -125,15 +132,15 @@
   }
 
   .button-primary {
-    @apply button bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply button bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20;
   }
 
   .button-secondary {
-    @apply button bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply button bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md shadow-secondary/20;
   }
 
   .button-ghost {
-    @apply button hover:bg-accent hover:text-accent-foreground;
+    @apply button hover:bg-accent/10 hover:text-accent;
   }
 
   .container-section {
@@ -146,5 +153,36 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-blue-500 bg-clip-text text-transparent;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-background to-secondary/50 backdrop-blur-sm;
+  }
+  
+  .ai-glow {
+    @apply relative;
+  }
+  
+  .ai-glow::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: inherit;
+    background: linear-gradient(60deg, rgba(148, 108, 255, 0.4), rgba(255, 85, 178, 0.4));
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .ai-glow:hover::before {
+    opacity: 1;
   }
 }
