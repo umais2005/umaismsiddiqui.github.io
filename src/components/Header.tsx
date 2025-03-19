@@ -30,6 +30,21 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle hash navigation smoothly
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // Update URL without page reload
+      window.history.pushState(null, '', `#${id}`);
+    }
+    // Close mobile menu if open
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header 
       className={cn(
@@ -42,6 +57,7 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
         <a 
           href="#top" 
           className="text-xl font-medium tracking-tight transition-opacity hover:opacity-80"
+          onClick={(e) => handleNavClick(e, 'top')}
         >
           {portfolioData.name}
         </a>
@@ -53,6 +69,7 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
               key={section.id}
               href={`#${section.id}`}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              onClick={(e) => handleNavClick(e, section.id)}
             >
               {section.label}
             </a>
@@ -79,7 +96,10 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
                   key={section.id}
                   href={`#${section.id}`}
                   className="px-6 py-3 text-sm font-medium border-b border-border last:border-0 hover:bg-secondary/50"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, section.id);
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   {section.label}
                 </a>
