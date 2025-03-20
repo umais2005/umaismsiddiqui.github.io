@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { BrainCog, Sparkles, ChevronDown } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface HeroProps {
   portfolioData: any;
@@ -9,6 +10,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
   const imageRef = useRef<HTMLImageElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleParallax = () => {
@@ -59,6 +62,32 @@ const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
     }
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/' && location.pathname !== '/index') {
+      navigate('/');
+      // We'll need to wait for the navigation to complete before scrolling
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+    } else {
+      scrollToSection(id);
+    }
+  };
+  
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // Update URL without page reload
+      window.history.pushState(null, '', `#${id}`);
+    } else {
+      console.warn(`Element with id "${id}" not found in the document`);
+    }
+  };
+
   return (
     <section id="top" className="relative h-screen flex items-center justify-center overflow-hidden ai-circuit-bg">
       {/* Floating particles */}
@@ -94,6 +123,7 @@ const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
             <a 
               href="#projects" 
               className="button-primary px-5 py-2 rounded-full ai-glow group"
+              onClick={(e) => handleNavClick(e, 'projects')}
             >
               <Sparkles className="mr-2 group-hover:animate-pulse" size={18} />
               Explore My Work
@@ -101,6 +131,7 @@ const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
             <a 
               href="#contact" 
               className="button-secondary px-5 py-2 rounded-full ai-glow"
+              onClick={(e) => handleNavClick(e, 'contact')}
             >
               Get In Touch
             </a>
@@ -110,7 +141,11 @@ const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" aria-label="Scroll Down">
+        <a 
+          href="#about" 
+          aria-label="Scroll Down"
+          onClick={(e) => handleNavClick(e, 'about')}
+        >
           <ChevronDown size={30} className="text-primary/70" />
         </a>
       </div>
