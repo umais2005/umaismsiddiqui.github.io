@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  // Sections for navigation
+  // Sections for navigation - ensure these match actual section IDs in the DOM
   const sections = [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
@@ -38,6 +38,8 @@ const Header: React.FC<HeaderProps> = ({ portfolioData }) => {
       element.scrollIntoView({ behavior: 'smooth' });
       // Update URL without page reload
       window.history.pushState(null, '', `#${id}`);
+    } else {
+      console.warn(`Element with id "${id}" not found in the document`);
     }
     // Close mobile menu if open
     if (mobileMenuOpen) {

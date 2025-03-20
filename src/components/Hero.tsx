@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ portfolioData }) => {
           
           <div className="flex justify-center mt-8 space-x-4">
             <a 
-              href="#about" 
+              href="#projects" 
               className="button-primary px-5 py-2 rounded-full ai-glow group"
             >
               <Sparkles className="mr-2 group-hover:animate-pulse" size={18} />
