@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, BrainCog, Circuit } from 'lucide-react';
+import { Mail, Phone, MapPin, BrainCog, CircuitBoard } from 'lucide-react';
 
 interface FooterProps {
   portfolioData: any;
@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ portfolioData }) => {
             
             <div className="mt-8">
               <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Circuit size={18} className="text-secondary" />
+                <CircuitBoard size={18} className="text-secondary" />
                 Connect With Me
               </h3>
               <div className="flex flex-wrap gap-4">

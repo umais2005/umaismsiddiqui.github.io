@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, ExternalLink, ArrowRight } from 'lucide-react';
 
 interface ProjectsProps {
   portfolioData: any;
@@ -146,18 +147,25 @@ const Projects: React.FC<ProjectsProps> = ({ portfolioData }) => {
                     </ul>
                   )}
                   
-                  {project.url && (
-                    <div className="pt-2">
+                  <div className="pt-2 flex gap-4">
+                    <Link 
+                      to={`/project/${index}`}
+                      className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+                    >
+                      View Details <ArrowRight size={14} className="ml-1" />
+                    </Link>
+                    
+                    {project.url && (
                       <a 
                         href={project.url} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+                        className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        View Project <ExternalLink size={14} className="ml-1" />
+                        Visit Project <ExternalLink size={14} className="ml-1" />
                       </a>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

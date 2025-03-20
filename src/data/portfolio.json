@@ -60,6 +60,10 @@
       "title": "My First Project",
       "summary": "Short summary about my first project",
       "url": "https://sample.com",
+      "created": "January 2023",
+      "category": "Web Development",
+      "client": "Client Name",
+      "tools": ["React", "TypeScript", "Tailwind CSS"],
       "highlights": [
         "First Highlight of Project One",
         "Second Highlight of Project One",
@@ -84,6 +88,10 @@
       "title": "My Second Project",
       "summary": "Short summary about my second project",
       "url": "https://sample.com",
+      "created": "March 2023",
+      "category": "Mobile App",
+      "client": "Another Client",
+      "tools": ["React Native", "Firebase", "Redux"],
       "highlights": [
         "First Highlight of Project Two",
         "Second Highlight of Project Two",
